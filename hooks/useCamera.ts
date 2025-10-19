@@ -88,14 +88,15 @@ export function useCamera() {
     recordedChunksRef.current = [];
 
     try {
-      let options: MediaRecorderOptions = { mimeType: 'video/webm;codecs=vp9,opus' };
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: 'video/webm;codecs=vp8,opus' };
-        if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-          options = { mimeType: 'video/webm' };
+      let mimeType = 'video/webm;codecs=vp9,opus';
+      if (!MediaRecorder.isTypeSupported(mimeType)) {
+        mimeType = 'video/webm;codecs=vp8,opus';
+        if (!MediaRecorder.isTypeSupported(mimeType)) {
+          mimeType = 'video/webm';
         }
       }
 
+      const options: MediaRecorderOptions = { mimeType };
       const recorder = new MediaRecorder(mediaStreamRef.current, options);
 
       recorder.ondataavailable = (event) => {
