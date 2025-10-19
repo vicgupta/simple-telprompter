@@ -56,7 +56,7 @@ export default function RegisterPage() {
 
       // Redirect to teleprompter on success
       router.push('/teleprompter');
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.');
       setLoading(false);
     }

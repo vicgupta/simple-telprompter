@@ -37,7 +37,7 @@ export default function LoginPage() {
 
       // Redirect to teleprompter on success
       router.push('/teleprompter');
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.');
       setLoading(false);
     }
@@ -106,7 +106,7 @@ export default function LoginPage() {
 
           <div className="mt-6 text-center">
             <p className="text-gray-400">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link href="/register" className="text-blue-400 hover:text-blue-300 font-semibold">
                 Register
               </Link>
