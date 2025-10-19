@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Teleprompter - Next.js
+
+A professional teleprompter application built with Next.js, TypeScript, and Tailwind CSS. Features include text scrolling, customizable speed and font size, video recording with camera preview, and keyboard controls.
+
+## Features
+
+- **Auto-scrolling teleprompter** with adjustable speed
+- **Customizable font size** for optimal reading
+- **Video recording** with camera selection and preview
+- **Keyboard shortcuts** (Spacebar to play/pause)
+- **Responsive design** with modern UI
+- **Built with Next.js 15** and TypeScript
+
+## Project Structure
+
+```
+teleprompter-nextjs/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata
+│   ├── page.tsx            # Main page component
+│   └── globals.css         # Global styles
+├── components/
+│   ├── Controls.tsx        # Control panel component
+│   ├── TeleprompterDisplay.tsx  # Text display component
+│   ├── TextInput.tsx       # Script input component
+│   └── VideoRecorder.tsx   # Camera and recording component
+├── hooks/
+│   ├── useTeleprompter.ts  # Teleprompter state management
+│   └── useCamera.ts        # Camera and recording logic
+└── package.json
+```
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+cd teleprompter-nextjs
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+1. **Enter your script** in the text input area at the top
+2. **Adjust settings** using the control panel:
+   - Speed: Control scroll speed (1-100)
+   - Font Size: Adjust text size (16-100px)
+3. **Click "Start"** or press **Spacebar** to begin scrolling
+4. **Optional**: Enable camera to record yourself reading
+   - Click "Show Camera" to access camera controls
+   - Select your preferred camera
+   - Click "Start Recording" to begin
+   - Click "Download Video" when finished
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Keyboard Shortcuts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Spacebar**: Play/Pause scrolling
 
-## Deploy on Vercel
+## Camera Permissions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application requires camera and microphone permissions for video recording features. Grant permissions when prompted by your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technology Stack
+
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **MediaRecorder API** - Browser-based video recording
+- **getUserMedia API** - Camera access
+
+## Browser Compatibility
+
+- Chrome/Edge 90+
+- Firefox 88+
+- Safari 14+
+
+Modern browsers with support for MediaRecorder API and getUserMedia are required for video recording features.
+
+## Migrated from HTML
+
+This project was refactored from a single HTML file into a modern Next.js application with:
+- Component-based architecture
+- TypeScript for type safety
+- Custom React hooks for state management
+- Tailwind CSS for styling
+- Improved code organization and maintainability
