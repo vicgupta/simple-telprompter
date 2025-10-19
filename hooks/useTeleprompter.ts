@@ -3,8 +3,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 export function useTeleprompter() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentPosition, setCurrentPosition] = useState(0);
-  const [speed, setSpeed] = useState(30);
-  const [fontSize, setFontSize] = useState(36);
+  const [speed, setSpeed] = useState(10);
+  const [fontSize, setFontSize] = useState(50);
   const [text, setText] = useState('');
   const [showInput, setShowInput] = useState(true);
 

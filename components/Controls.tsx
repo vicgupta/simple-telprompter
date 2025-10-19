@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import VideoRecorder from './VideoRecorder';
 
 interface ControlsProps {
@@ -25,6 +26,22 @@ export default function Controls({
   onSpeedChange,
   onFontSizeChange,
 }: ControlsProps) {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+      });
+
+      if (response.ok) {
+        router.push('/');
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-gray-900/95 p-4 flex gap-5 items-center flex-wrap z-[1000] border-t-2 border-gray-600">
       <div className="flex items-center gap-2.5">
@@ -54,6 +71,13 @@ export default function Controls({
         </button>
 
         <VideoRecorder />
+
+        <button
+          onClick={handleLogout}
+          className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-5 text-sm rounded transition-colors"
+        >
+          Logout
+        </button>
       </div>
 
       <div className="flex items-center gap-2.5">
